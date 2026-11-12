@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>La Heladería</title>
+    <!-- SE AGREGA EL SCRIPT DE BABEL PARA COMPILAR JSX -->
+     <!------------------------------------------>
+    <script src="https://unpkg.com/@babel/standalone@8.0.4/babel.min.js"></script>
+     <!------------------------------------------>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- Se cambia el tipo de script a text/babel para compilar JSX -->
+    <!------------------------------------------>
+    <script type="text/babel" data-type="module">
+    //-------------------------------------------------
+        import React from "https://esm.sh/react@19.2.0?dev";
+        import { createRoot } from "https://esm.sh/react-dom@19.2.0/client?dev";
+        
+        const itemName = React.createElement("h2", null, "Mora silvestre");
+
+        const itemDescription = React.createElement(
+            "p",
+            { className: "menu-item-description" },
+            "Mora de Ambato con un toque de limón."
+        );
+
+        const menuItem = React.createElement(
+            "article",
+            { className: "menu-item" },
+            itemName,
+            itemDescription
+        );
+        // Otra Forma de colocar el título de la heladería usando JSX
+        //-------------------------------------------------
+        const heading = <h1>La Heladería</h1>;
+        //-------------------------------------------------
+
+        const menu = React.createElement("main", null, heading, menuItem);
+
+        createRoot(document.getElementById("root")).render(menu);
+    </script>
+</body>
+
+</html>
